@@ -4,12 +4,13 @@
 
 ## Amazon SDE II — start here
 
+- **New chat: read the [canonical handoff](AMAZON_SDE2_CHAT_HANDOFF.md) first.** Customer Obsession Q1–Q6 and Ownership Q1–Q2 are covered. **Resume Ownership Q3 — “Took a project end to end.”** Preserve approved stories; Story 2 = Customer Obsession, Story 3 = Ownership, Story 1 = Highest Standards. One real incident per primary LP; no cross-LP reuse. The handoff preserves Story 3’s specification-first motivation: controlling alignment of coding-agent-generated code.
 - **Customer Obsession source of truth:** [Complete study module — Q1–Q6 STAR-L, trade-offs and follow-ups](modules/01_Customer_Obsession_Complete_Study_Module.md).
 - **Story evidence and wider preparation:** [Final Story Amazon Leadership](Final_Story_Amazon_Leadership.md), especially Story 2 and the interview-readiness assessment. Use this to check what is work-grounded, unconfirmed or illustrative; the module governs the current Customer Obsession answer format.
 
 ### Retrieval-first instructions for another ChatGPT conversation
 
-1. Provide the [repository link](https://github.com/Harish-K000/Study) and ask the chat to read this README and **both linked files above before answering**. Use GitHub connector access authorized for this repository where available. If it cannot read the files, upload/paste them; it must say what it could not access rather than pretend it retrieved them.
+1. Provide the [repository link](https://github.com/Harish-K000/Study) and ask the chat to read this README, the **canonical handoff**, and **both canonical story files linked above before answering**. Use GitHub connector access authorized for this repository where available. If it cannot read the files, upload/paste them; it must say what it could not access rather than pretend it retrieved them.
 2. Use the retrieved files as context. Identify the relevant question and story, check the evidence labels, then answer. When formats differ, use the Customer Obsession module for Q1–Q6 and the story guide to cross-check evidence; surface factual conflicts rather than silently combining them.
 3. Do not invent incidents, fields, code changes, stakeholders, deployments, metrics or outcomes. The missing-delivery-address and saved-address disagreement scenarios are illustrative, not verified job incidents. QA feedback is not a direct customer complaint; no material schedule sacrifice is established. The broader 42% metric is not attributable to this one correction.
 4. Target the **senior Amazon SDE II standard** requested for this preparation: architectural boundaries, personal ownership, alternatives and trade-offs, production safety, data integrity, test/security verification and customer impact. Explain judgment through the work that actually happened; do not manufacture scale or outcomes. Answer in natural spoken first-person **STAR-L: Situation, Task, Action, Result, Learning**. Use “I” for personal actions and “we” only for shared work/outcomes. Keep Learning to **2–3 short first-person sentences**. Use conditional “I would” for hypothetical exercises and label them clearly; never present one as personal history.
@@ -21,26 +22,7 @@ This is a **GitHub-backed knowledge base**, not an implemented automatic RAG sys
 
 ### Paste into another chat
 
-```text
-Continue my Amazon SDE II behavioral preparation from Harish-K000/Study on main.
-Read these current files before drafting; if access fails, tell me which files
-are unavailable and ask me to paste/upload them. Do not assume automatic retrieval.
-https://github.com/Harish-K000/Study/blob/main/06-behavioral/README.md
-https://github.com/Harish-K000/Study/blob/main/06-behavioral/modules/01_Customer_Obsession_Complete_Study_Module.md
-https://github.com/Harish-K000/Study/blob/main/06-behavioral/Final_Story_Amazon_Leadership.md
-Use the module for Customer Obsession Q1–Q6 and cross-check story evidence.
-Use senior engineering judgment: ownership, architecture, trade-offs, safety,
-data integrity, verification and customer impact. Speak naturally in first-person
-STAR-L; Action strongest (~60–90s or proportionate), Learning 2–3 short sentences,
-normal full story 3–4min, 6min ceiling. Never pad or invent history or metrics.
-LLM: intent/conversation and proposed allowed tool calls. Backend: authN/authZ,
-validation, deterministic business invariants and transactional effects.
-AI is not the system of record. Preserve QA-vs-customer and illustrative labels.
-For Q6 retain the nearby validation improvement, QA re-testing, own Engineering
-Agent build/test and security checks, and feature-branch push. Distinguish checks
-run from evidenced pass/fail. No established material sacrifice or production rollout.
-Start from the question I give you; keep technical follow-ups separate.
-```
+Use the [minimal copy-paste bootstrap in the canonical handoff](AMAZON_SDE2_CHAT_HANDOFF.md#minimal-copy-paste-bootstrap-for-a-future-chat). It includes all four retrieval links, the current Ownership Q3 checkpoint and the locked-story constraints.
 
 The general preparation below retains the earlier Air Canada material; the Amazon instructions above govern Amazon Customer Obsession practice.
 
