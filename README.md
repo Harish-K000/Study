@@ -2,6 +2,8 @@
 
 ## Start here
 
+For **Amazon SDE II Customer Obsession**, use the [behavioral knowledge-base instructions](06-behavioral/README.md#amazon-sde-ii--start-here), which link the current STAR-L module and story evidence guide.
+
 1. [Core Interview Script](01%20-%20Core%20Interview%20Script.md) — the final spoken-answer document. Revise this aloud; it is intentionally conversational rather than textbook-style.
 2. [Resume Script](07-resume/RESUME-SCRIPT.md) — verify personal contribution and every metric.
 3. [Behavioral Preparation](06-behavioral/README.md) — rehearse STAR stories aloud.

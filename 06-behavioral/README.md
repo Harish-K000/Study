@@ -2,6 +2,23 @@
 
 [Master index](../README.md) · [Enterprise Java playbook](../FINAL-INTERVIEW-HANDBOOK.md) · [Answer book](../FINAL-INTERVIEW-ANSWER-BOOK.md) · Previous: [System design](../05-system-design/README.md) · Next: [Resume script](../07-resume/RESUME-SCRIPT.md)
 
+## Amazon SDE II — start here
+
+- **Customer Obsession source of truth:** [Complete study module — Q1–Q6 STAR-L, trade-offs and follow-ups](modules/01_Customer_Obsession_Complete_Study_Module.md).
+- **Story evidence and wider preparation:** [Final Story Amazon Leadership](Final_Story_Amazon_Leadership.md), especially Story 2 and the interview-readiness assessment. Use this to check what is work-grounded, unconfirmed or illustrative; the module governs the current Customer Obsession answer format.
+
+### Retrieval-first instructions for another ChatGPT conversation
+
+1. Provide the [repository link](https://github.com/Harish-K000/Study) and ask the chat to read this README and **both linked files above before answering**. Use GitHub connector access authorized for this repository where available. If it cannot read the files, upload/paste them; it must say what it could not access rather than pretend it retrieved them.
+2. Use the retrieved files as context. Identify the relevant question and story, check the evidence labels, then answer. When formats differ, use the Customer Obsession module for Q1–Q6 and the story guide to cross-check evidence; surface factual conflicts rather than silently combining them.
+3. Do not invent incidents, fields, code changes, stakeholders, deployments, metrics or outcomes. The missing-delivery-address and saved-address disagreement scenarios are illustrative, not verified job incidents. QA feedback is not a direct customer complaint; no material schedule sacrifice is established. The broader 42% metric is not attributable to this one correction.
+4. Answer in natural first-person **STAR-L: Situation, Task, Action, Result, Learning**. Use “I” for personal actions and “we” only for shared work/outcomes. Keep Learning to **2–3 short first-person sentences**. Use conditional “I would” for hypothetical exercises and label them clearly; never present one as personal history.
+5. Keep each response within a **maximum of six minutes** at the speaker's natural pace. Stop when complete; do not pad to six minutes. Use concise conversational storytelling. Keep technical follow-ups separate and explain decisions and trade-offs when asked.
+
+This is a **GitHub-backed knowledge base**, not an implemented automatic RAG system or model training. Other chats do not automatically ingest this repository or its updates. Supply the repo/file links or connector access and explicitly request retrieval; if access is unavailable, upload the Markdown files. Re-read the current files when continuing preparation. ChatGPT projects can share sources when those sources are actually uploaded or connected ([official OpenAI documentation](https://learn.chatgpt.com/docs/projects?surface=app)).
+
+The general preparation below retains the earlier Air Canada material; the Amazon instructions above govern Amazon Customer Obsession practice.
+
 ## STAR without sounding scripted
 
 Use four short parts:

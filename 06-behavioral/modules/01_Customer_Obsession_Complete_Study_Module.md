@@ -1,10 +1,10 @@
 # Amazon SDE II — Customer Obsession: Complete Study Module
 
-**Leadership Principle 1 of 16 · Story 2 (Birlasoft) · Study before mock interviews · 19 October 2026**
+**Leadership Principle 1 of 16 · Story 2 (Birlasoft) · Study before mock interviews · Updated 20 October 2026**
 
-> **How to use this guide:** First understand the engineering problem and trade-offs; then practice the six natural STAR answers; then learn the 27 follow-ups and system-design extensions. Do not memorize exact wording. The STAR headings are training cues: in the interview, speak as one connected story without saying “Situation, Task, Action, Result.”
+> **How to use this guide:** First understand the engineering problem and trade-offs; then practice the six natural STAR-L question variants; then learn the 27 follow-ups and system-design extensions. Do not memorize exact wording. The STAR-L headings are training cues: in the interview, speak as one connected story without announcing the labels. Six minutes is the maximum for one response, not a target; stop when the answer is complete. Keep Learning to 2–3 natural first-person sentences and use technical detail only when it helps answer the question.
 >
-> **Evidence boundary:** The central work is grounded in the user's described Birlasoft experience: while supporting QA rate-limit and prompt-injection testing, the engineer noticed invalid/missing order inputs, investigated/corrected backend validation handling, pushed a feature-branch change, and checked valid and invalid cases with QA. The precise field, Java change, exhaustive automated tests, release impact, and personal causal impact on the broader **42%** reported project outcome are not established. Technical code, failure examples, and designs below are **learning examples**, not claims about the deployed Birlasoft implementation.
+> **Evidence boundary:** The central work is grounded in the user's described Birlasoft experience: while supporting QA rate-limit and prompt-injection testing, the engineer noticed invalid/missing order inputs, investigated/corrected backend validation handling, pushed a feature-branch change, and checked valid and invalid cases with QA. The precise field, Java change, exhaustive automated tests, release impact, and personal causal impact on the broader **42%** reported project outcome are not established. The missing-delivery-address example, saved-address stakeholder disagreement, technical code, and other proposed failure scenarios/designs below are **illustrative learning examples**, not verified job incidents or claims about the deployed Birlasoft implementation. First-person wording does not turn a practice scenario into personal history.
 
 **Source story:** [Final Story Amazon Leadership](https://github.com/Harish-K000/Study/blob/main/06-behavioral/Final_Story_Amazon_Leadership.md) — Story 2. **Interview syllabus:** the user's six Customer Obsession questions and 27 follow-ups from the consolidated Amazon SDE II question bank.
 
@@ -230,92 +230,163 @@ Useful measures include: validation-error volume *by category*, legitimate order
 **Spoken answer:** “For this particular fix, I can support the QA verification. The project's wider 42% number isn't a measurement of my change alone. If I were measuring customer impact, I'd look at whether customers successfully corrected invalid requests and completed orders, not just whether we returned more 400 responses.”
 
 ---
-## Part C — Six behavioral questions: natural first-person STAR scripts
+## Part C — Q1–Q6: concise first-person STAR-L answers
 
-**How to speak:** Treat the four paragraphs as a memory aid: context → what I needed to solve → what I personally did and why → what happened and what I learned. Speak without labels. The variants intentionally reuse the *same incident* but change emphasis to match the question.
+**Delivery:** Use Situation → Task → Action → Result → Learning as memory cues, then tell one connected story. Use “I” for personal actions and “we” only for shared work or outcomes. These short answers leave room for questions; **six minutes is a maximum, not time to fill**. Rehearse aloud at your natural pace and trim if needed. Do not recite the technical follow-ups as part of every opening answer.
+
+**Evidence and fit:** Q1, Q4 and Q5 use the same work-grounded QA incident, with different emphasis. Q2 and Q6 have only partial fit. Q3 is a hypothetical practice exercise and cannot be presented as an actual disagreement. If the interviewer requires an experience the evidence does not establish, choose another confirmed incident or acknowledge the gap.
 
 ### Q1 ★ Tell me about a time you went above and beyond for a customer.
 
 **S — Situation**
 
-“At Birlasoft, I was working on the backend of an AI-enabled commerce application. During one testing cycle, I was helping QA with rate-limiting and prompt-injection scenarios. While going through those cases, I noticed that some order requests with missing or invalid information weren't being handled as expected.”
+“At Birlasoft, I was helping QA test rate limiting and prompt-injection scenarios in our AI-enabled commerce application. During those tests, I noticed that some order requests with missing or invalid information weren't being handled correctly.”
 
 **T — Task**
 
-“That wasn't what we were originally testing. But because this was an order operation, I didn't want to leave a correctness issue unresolved just because it fell outside the current checklist. I wanted to understand the backend behavior and correct it without affecting legitimate requests.”
+“That was outside the original testing focus, but it affected a core customer operation. I wanted to understand the problem and correct it without disrupting valid orders.”
 
 **A — Action**
 
-“I compared the problematic requests with valid ones, then followed the relevant request path into the Java backend. I focused on the validation boundary rather than assuming the AI itself was the cause. My reasoning was that the backend should enforce its order contract whether a request comes from an AI assistant or another client. I corrected the affected handling and worked with QA to check the invalid cases and make sure valid orders still behaved correctly.”
+“I traced the requests into the Java backend and investigated the validation handling. I focused there because the backend needs to enforce the order contract for every caller; prompt instructions alone can't guarantee valid inputs. I corrected the affected handling, worked with QA to check invalid and valid requests, and pushed the change to my feature branch.”
 
-**R — Result and learning**
+**R — Result**
 
-“We verified the corrected behavior with QA, and I pushed the change to my feature branch. What stayed with me was that customer protection isn't always a separate feature request. Sometimes it's noticing something wrong while doing another task and following through because the core operation matters.”
+“We verified the corrected behavior in QA, including the valid request path.”
 
-**What makes this Customer Obsession:** You identified a potential customer-impacting risk without waiting for a complaint or separate assignment.
+**L — Learning**
+
+“I learned to follow up on a customer risk even when I find it outside my assigned task. I also learned to check that a fix protects valid customers as carefully as it rejects invalid requests.”
+
+**Technical follow-ups / trade-offs:** Why the backend rather than prompts or frontend checks? See Part D, 8–9. How did I verify the fix? See 21–23: QA checks are supported; specific automated tests are unconfirmed. The trade-off is stronger validation versus accidentally rejecting legitimate requests.
 
 ### Q2 Tell me about a technical decision you made based on customer feedback.
 
-**Fit: partial. QA feedback is not a confirmed direct customer complaint.**
+**Fit: partial. QA observations are established; direct customer feedback is not.** Use this only if the interviewer accepts a related QA example.
 
-**S** “One close example came up during QA testing of our commerce backend at Birlasoft. We were testing rate limiting and prompt-related risks, and the tests also surfaced unexpected handling of incomplete or invalid order data.”
+**S — Situation**
 
-**T** “I needed to understand whether the issue was just a bad AI-generated input or something we needed to handle consistently in the backend.”
+“The closest example I have here came from QA observations, rather than a customer complaint. While helping test our commerce backend at Birlasoft, I noticed unexpected handling of missing or invalid order inputs.”
 
-**A** “I looked at the relevant request-validation path and corrected the backend behavior. The important consideration for me was that instructions to an AI model can improve the request it generates, but they shouldn't be the only line of defense before an order is processed. I also checked the correction with QA against both invalid and legitimate requests.”
+**T — Task**
 
-**R** “The behavior was corrected and verified in testing. To be precise, the feedback in this example came from QA observations, not a customer directly contacting us. The customer benefit we were protecting was reliable order handling.”
+“I needed to understand the behavior and make sure the service handled those inputs consistently.”
 
-**If they insist on direct customer feedback:** This example does not meet that exact requirement; do not relabel QA as a customer.
+**A — Action**
+
+“I investigated the backend validation path and corrected the affected handling. My reasoning was that prompts can guide the AI's input, but the service must enforce the order contract itself. I checked the correction with QA using both invalid and valid requests.”
+
+**R — Result**
+
+“We verified the corrected behavior in testing, and I pushed the change to my feature branch.”
+
+**L — Learning**
+
+“I learned to connect a QA observation to the customer operation it could affect. I also learned to be precise about where feedback came from and what the testing actually proved.”
+
+**Technical follow-ups / trade-offs:** Why backend enforcement? See Part D, 8 and 12–14. How would I measure customer benefit? See 24–26: recovery and successful order completion matter alongside rejection counts. Those production measurements are proposed, not results of this fix.
 
 ### Q3 Tell me about a time you disagreed with a customer but still delivered a successful solution.
 
-**Not answered by Story 2. No customer disagreement is established.** Do not pretend that choosing backend validation over prompt instructions was a disagreement with a customer. The following is a **practice-only STAR decision framework**, not a first-person historical incident:
+**Illustrative only — no verified customer or stakeholder disagreement.** The saved-address scenario below is a hypothetical STAR-L exercise. Its conditional first-person wording describes how I would approach it, not something I did. For a real “tell me about a time” answer, replace it with a confirmed incident.
 
-- **Situation:** A stakeholder wants a checkout operation to accept incomplete information for convenience.
-- **Task:** Clarify whether they need an editable draft or a final submitted order.
-- **Action:** Explain the risk of an invalid committed order; propose draft-save flexibility with strict validation at final submission; compare error recovery and customer friction.
-- **Result:** Test whether customers can save progress without invalid orders being committed. No actual delivered outcome is claimed here.
+**S — Situation**
 
-**Interview handling:** If asked this exact question, select a different **real disagreement** story rather than invent a dispute or forcing Story 2 into one.
+“In a practice scenario, a stakeholder wants returning customers to check out without entering their address again because they already have a saved address. The concern is unnecessary effort for the customer, not a request to knowingly create an undeliverable order.”
+
+**T — Task**
+
+“I would clarify whether the request means omitting a repeated input or submitting an order without a usable delivery address. My goal would be to remove repeated work while preserving delivery correctness.”
+
+**A — Action**
+
+“I would propose resolving the customer's selected saved address in the backend, checking that they can use it, and confirming the delivery details before submission. If no usable address exists, I would ask for one or let the customer save a draft. I would compare that flow with requiring everyone to re-enter an address and test both saved-address and missing-address cases.”
+
+**R — Result**
+
+“I would look for customers completing checkout with less repeated input while every submitted delivery order has the required details. That is an acceptance goal for this exercise; no delivered solution or actual customer outcome is established.”
+
+**L — Learning**
+
+“I would first ask what inconvenience the customer is trying to remove before disagreeing with a proposed solution. I would look for a way to reduce that effort while keeping the final order valid.”
+
+**Technical follow-ups / trade-offs — hypothetical:** How would I prevent using another customer's address? Authorize the selected saved address against the authenticated caller; see Part D, 20 and Part E, probe 4. What if it is stale or missing? Confirm current delivery details or request correction; draft-save can preserve progress. The trade-off is less re-entry versus stale data, extra lookups and additional failure paths. None of this is established as implemented at Birlasoft.
 
 ### Q4 Tell me about a time you balanced customer needs against technical limitations.
 
-**S** “In our commerce backend at Birlasoft, I noticed an order-validation problem while helping QA with another set of tests. Some requests with missing or invalid information weren't handled the way they should have been.”
+**S — Situation**
 
-**T** “I wanted the system to protect order correctness, but I also needed to avoid making the validation so restrictive that normal customers couldn't place legitimate orders.”
+“At Birlasoft, I found an order-input validation issue while helping QA test rate limiting and prompt-injection scenarios. Some missing or invalid inputs weren't being handled correctly.”
 
-**A** “I traced the affected validation handling and focused the correction in the backend. I knew we couldn't depend entirely on the AI prompt because other callers can reach the same service, and prompts aren't enforcement. But I also paid attention to the existing order contract: a field shouldn't suddenly become mandatory just because we were fixing a negative test. I worked with QA to check both the problematic requests and the valid path.”
+**T — Task**
 
-**R** “The issue was corrected and the relevant behavior was verified with QA. My takeaway was that protecting customers means rejecting genuinely invalid requests without creating unnecessary friction for valid ones.”
+“I wanted to protect order correctness without making the service reject legitimate customer requests.”
 
-**Actual trade-off:** Correctness/safety against false rejection and compatibility. Do not imply you redesigned checkout UX.
+**A — Action**
+
+“I traced the affected handling into the Java backend and made a focused correction. I chose the backend because prompt instructions aren't a reliable enforcement boundary. At the same time, I checked against the existing contract so the correction wouldn't turn an optional field into a mandatory one. I worked with QA to verify both the problematic requests and valid orders.”
+
+**R — Result**
+
+“We verified the corrected behavior with QA, including the valid requests, and I pushed the change to my feature branch.”
+
+**L — Learning**
+
+“I learned that stricter validation helps only when it matches the actual customer contract. I now think about both sides of the fix: stopping invalid requests and keeping valid orders easy to complete.”
+
+**Technical follow-ups / trade-offs:** How could validation hurt customers? See Part D, 11 and Part E, probe 6: false rejections and compatibility. Why not fix only the prompt? See Part D, 8. How did I verify the balance? QA checked invalid and valid cases; see 21.
+
+**Illustration, not the historical field:** A delivery order with neither a supplied nor a usable saved address may need correction before submission. A request that omits repeated address text but selects an authorized saved address may still be valid under its contract. Pickup may have different requirements. I would clarify the rules before making an address field universally mandatory. The exact missing field, delivery flow and saved-address behavior in the actual incident are unconfirmed.
 
 ### Q5 ★ How did you identify a customer problem before the customer reported it?
 
-**S** “I found one while testing a commerce backend at Birlasoft. I was supporting QA on rate-limit and prompt-injection cases, so order-field validation wasn't our main objective. While reviewing the requests, I noticed missing or invalid order information wasn't being handled correctly.”
+**S — Situation**
 
-**T** “At that point, it hadn't come to me as a customer complaint. I wanted to understand whether the backend would handle those requests safely and make sure we weren't leaving that issue for a real order flow.”
+“I found one while supporting QA on rate-limit and prompt-injection testing at Birlasoft. Order-input validation wasn't the main objective, but I noticed missing or invalid order information wasn't being handled correctly.”
 
-**A** “I looked at the actual inputs reaching the service, followed the validation handling in the Java backend, and corrected the affected code path. I focused on the backend because it's the component responsible for enforcing the transaction contract. After the change, I worked with QA to retest the invalid scenarios as well as ordinary valid requests.”
+**T — Task**
 
-**R** “We verified the correction during testing and I pushed it to my feature branch. For me, the lesson was to treat an unexpected testing observation as a possible customer concern rather than waiting for it to appear as a support ticket.”
+“I wanted to understand the backend behavior and address the potential customer risk without waiting for a support ticket.”
 
-**Actual detection path:** QA, not proven end-customer impact.
+**A — Action**
+
+“I followed the requests into the Java backend and investigated the validation path. I corrected the affected handling, then worked with QA to retest both the invalid scenarios and ordinary valid requests. I also pushed the correction to my feature branch.”
+
+**R — Result**
+
+“We verified the correction during testing. I hadn't received a direct customer report; I found it through the QA work.”
+
+**L — Learning**
+
+“I learned to treat an unexpected testing observation as a possible customer concern. I don't need to wait for a complaint before investigating behavior that could affect an order.”
+
+**Technical follow-ups / trade-offs:** What was the detection path? QA, not production telemetry; see Part D, 1–7. How would I catch recurrence? See 23 and 26 and Part E, probe 7: contract tests and safe monitoring are proposed improvements. The trade-off is early investigation effort versus leaving a correctness risk unexplored.
 
 ### Q6 Tell me about a time you sacrificed a short-term technical goal to improve customer experience.
 
-**Fit: partial. A schedule impact, delayed deliverable or actual sacrifice is not established.** This STAR truthfully describes a change of focus, but it does not satisfy a demand for a **material** sacrifice.
+**Fit: partial. A delayed deliverable, missed deadline or material sacrifice is not established.** This example shows a change of focus. Choose another confirmed incident if the question requires an actual sacrificed goal.
 
-**S** “I was helping QA with rate-limiting and prompt-injection testing for our commerce services when I noticed an order-input validation issue.”
+**S — Situation**
 
-**T** “That wasn't the reason I was working with QA. I needed to decide whether to leave it for a later task or spend time understanding the behavior because it affected a core order operation.”
+“I was helping QA with rate-limiting and prompt-injection testing when I noticed an order-input validation issue outside that testing focus.”
 
-**A** “I spent time tracing the invalid requests through the Java backend, corrected the validation handling and coordinated the retesting with QA. I focused on a small correction and verified valid order behavior rather than using it as a reason to redesign the whole service.”
+**T — Task**
 
-**R** “We verified the affected scenarios and I pushed the correction. The short-term change here was my attention moving beyond the original testing focus. I wouldn't claim that I missed a deadline or deferred another commitment, because that isn't part of this example.”
+“I needed to decide whether to stay within the original checklist or spend time investigating behavior that could affect a customer order.”
 
-**If the interviewer asks what was actually sacrificed:** Answer the narrower truth; use another real incident if the question requires a significant measurable trade-off.
+**A — Action**
+
+“I spent time tracing the invalid requests through the Java backend and corrected the validation handling. I kept the change focused and coordinated the invalid and valid checks with QA rather than expanding it into a service redesign.”
+
+**R — Result**
+
+“We verified the correction, and I pushed the feature-branch change. My attention moved beyond the original testing focus, but I can't claim that I delayed a deadline or gave up a committed deliverable.”
+
+**L — Learning**
+
+“I learned to give an unexpected customer risk attention even when it isn't on the original checklist. I also learned to keep the response focused so I can verify the correction without expanding the work unnecessarily.”
+
+**Technical follow-ups / trade-offs:** Why a focused change rather than a redesign? See Part D, 6 and 13. What did I actually sacrifice? No measurable schedule sacrifice is recorded. The defensible trade-off is investigation scope and effort, not an invented release delay or quantified customer gain.
 
 ---
 
@@ -415,7 +486,7 @@ Useful measures include: validation-error volume *by category*, legitimate order
 ---
 ## Part E — System-design follow-ups: spoken technical answers
 
-These are **architecture exercises**, not additional claims about what was implemented in Story 2. Here, structure the answer as **problem → goal → design decision → failure handling → how I'd verify**. This gives a natural STAR-like shape for a technical interview.
+These are **architecture exercises**, not additional claims about what was implemented in Story 2. Here, structure the answer as **problem → goal → design decision → failure handling → how I'd verify**. This keeps technical explanations natural without forcing every follow-up into a full STAR-L answer.
 
 ### The 90-second design prompt
 
@@ -516,7 +587,7 @@ If you forget a prepared line, respond using this sequence:
 
 ## Part G — Study checklist (finish all before a mock interview)
 
-- [ ] Explain the Story 2 incident in 90–120 seconds without reading.
+- [ ] Explain the Story 2 incident naturally without reading; stop when complete and stay within the six-minute maximum.
 - [ ] Explain why Customer Obsession is primary and Ownership / Highest Standards / Dive Deep are secondary.
 - [ ] Understand `@NotBlank`, `@NotNull`, `@Positive`, `@Valid`, DTO validation, and business-state validation.
 - [ ] Understand what Spring MVC does with validation exceptions and why callers need stable error contracts.
@@ -526,7 +597,7 @@ If you forget a prepared line, respond using this sequence:
 - [ ] Explain stable idempotency keys, ambiguous timeouts and concurrent retries.
 - [ ] Explain authentication vs role permission vs object-level authorization.
 - [ ] Explain how to measure recovery, successful order completion and the limits of the 42% number.
-- [ ] Read and practice all six behavioral question variants without inventing a customer disagreement or schedule sacrifice.
+- [ ] Practice Q1–Q6 with separate Situation, Task, Action, Result and 2–3 sentence Learning sections; preserve the Q2/Q6 fit limits and hypothetical Q3 boundary.
 - [ ] Read and answer all 27 follow-ups aloud in 15–40 seconds each.
 - [ ] Explain the 90-second safe-order-API design and seven deep technical probes.
 - [ ] Only after all items above: begin the interviewer-style mock round.
