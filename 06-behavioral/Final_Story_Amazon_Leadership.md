@@ -1,12 +1,18 @@
 # Final Story Amazon Leadership — 18 STAR Stories + Bar Raiser Answers
 
-**Consolidated interview preparation pack | 18 numbered stories | Updated 19 October 2026**
+**Consolidated interview preparation pack | 18 numbered stories | Updated 20 October 2026**
 
 > **Evidence and integrity note:** This is a *study and rehearsal document*, not a record of 18 verified workplace incidents. **Documented** indicates evidence exists for the central technical work and the stated result; **Work-grounded / details unconfirmed** indicates the technology or responsibility is grounded in your experience but the exact STAR sequence or impact has not been established; **Fictional practice** indicates the described incident, decision, and result were constructed for interview practice and **must not be presented as employment history** unless confirmed independently. Proposed improvements are never claimed as implemented.
 >
 > The same Engineering Agent initiative underlies **Story 1 and Story 17**. Do **not** claim these are two independent projects. Story 7 does not yet have a verified mentoring incident. Other stories often contain illustrative details despite using your real employer and technology stack.
 
 **Use this as a combined preparation guide:** 18 complete study scripts followed by 90 direct follow-up answers. Many scenarios are practice-only; see the final interview-readiness assessment before describing them as employment history.
+
+## Current Customer Obsession guidance
+
+For Story 2, use the [Customer Obsession module](modules/01_Customer_Obsession_Complete_Study_Module.md#part-c--q1q6-concise-first-person-star-l-answers) for the current Q1–Q6 scripts and the [behavioral README](README.md#amazon-sde-ii--start-here) for delivery and retrieval instructions. Target senior Amazon SDE II judgment: architectural boundaries, ownership, alternatives/trade-offs, production safety, data integrity, test/security verification and customer impact. Speak naturally in first-person STAR-L; aim for 3–4 minutes normally, Action strongest at about 60–90 seconds or an appropriate proportion, Learning 2–3 short first-person sentences, and six minutes maximum. Never pad beyond the evidence.
+
+The commerce architecture contract is that the LLM interprets intent, handles conversation and proposes allowed structured tool calls. The backend owns authentication/authorization, validation, deterministic business invariants and transactional effects; **AI is not the system of record**. This contract does not certify every proposed safeguard as implemented. The module's saved-address disagreement and conditional delivery cases remain illustrative; QA observations are not direct customer feedback. Q6 shows bounded scope expansion, with no established missed deadline or material sacrifice.
 
 ## Quick reference
 
@@ -64,7 +70,8 @@ AI assistance should accelerate coding, not dilute the evidence required to trus
 ## Story 2 — Customer Obsession
 ### Acting on invalid order information discovered during QA
 
-**Evidence:** Work-grounded. QA testing context and backend validation correction are user-described; exact input field, test cases, and personal quantitative impact unconfirmed.  
+**Evidence:** Work-grounded and user-described: QA rate-limit/prompt-injection testing, comparison of valid/invalid cases, Java/Spring Boot request-flow investigation, backend correction plus targeted nearby validation improvement, QA re-testing, own Engineering Agent build/test and security-check execution, and feature-branch push. Exact input field, implementation, automated test cases, check reports/pass-fail results, production rollout and personal quantitative impact are unconfirmed.
+
 **Question:** “Tell me about a time you addressed a customer risk outside your immediate assignment.”
 
 **Situation**  
@@ -74,13 +81,13 @@ At Birlasoft, I worked on Java backend services for an AI-enabled commerce appli
 I wanted to understand how the backend handled those requests, correct the behavior within my scope, and verify that legitimate requests continued working.
 
 **Action**  
-I examined the request path and the relevant validation behavior rather than assuming the language model alone caused the invalid fields. I chose to improve the trusted backend request-validation handling rather than rely only on prompt instructions, since the backend had to enforce business rules for every caller. I coordinated with QA on the affected invalid and valid cases, updated the relevant Java code, and pushed the correction to my feature branch. I was careful not to turn optional fields into mandatory fields or reject valid business requests while addressing invalid ones. I distinguished invalid-input handling from duplicate-request prevention; they are related customer safeguards but different engineering problems.
+I compared valid and invalid cases and traced the Java/Spring Boot request flow to the relevant validation behavior. I focused on backend enforcement rather than assuming the model caused the invalid inputs or relying on a prompt-only correction. The model could propose a request, but the backend had to enforce the order contract for every caller. I corrected the specific handling and expanded the change into a targeted improvement of nearby validation code that I found also needed attention. I kept that scope tied to the validation problem rather than starting a service redesign. I re-tested with QA using affected invalid cases and valid requests, because a correction must preserve legitimate order behavior as well as handle invalid inputs. I used my own Engineering Agent to run build/test and security checks, then pushed the change to my feature branch. I distinguish those verification activities from an assertion that all checks passed; the individual reports are not available for this incident.
 
 **Result**  
-The grounded outcome is the corrected backend validation handling, related QA checks and a delivered feature-branch change. A **42% reduction in invalid or duplicate AI requests** has been reported for the *broader initiative*, but it is **not proven to result from this individual correction**. The exact problematic field and production effect are not established.
+I corrected the backend validation handling, made the nearby improvement, re-tested with QA, ran the Engineering Agent checks and pushed the feature-branch change. A **42% reduction in invalid or duplicate AI requests** has been reported for the *broader initiative*, but I cannot attribute it to this individual correction. The exact problematic field, individual check results and production effect are not established.
 
 **Learning**  
-Customer obsession can mean pursuing a risk discovered outside the assigned test objective. A prompt may steer behavior, but the backend still needs an enforceable business contract.
+I learned to follow a customer-correctness risk beyond the assigned test objective while keeping the improvement bounded. I also learned to separate what I changed, what I checked and what the available evidence actually proves.
 
 **Sentence to remember:** “I followed an unexpected invalid order request into the backend instead of dismissing it as outside the QA task.”
 
@@ -569,7 +576,7 @@ In a separate four-fixture diagnostic, the local reviewer returned structured ou
 I noticed missing or invalid order data while assisting QA with other risk scenarios. Order correctness matters even before a customer encounters a visible failure, so I followed the risk into the Java backend rather than ignore it as out of scope.
 
 **Q2. Why focus on backend validation rather than an AI prompt?**  
-The backend owns the transaction contract regardless of which client submits it. Prompt guidance may reduce malformed requests, but application validation must handle invalid inputs predictably for AI tools and non-AI callers.
+I treat the model as the intent/conversation layer that proposes allowed structured tool calls. The backend retains authN/authZ, validation, deterministic business invariants and transactional effects, regardless of the caller. Prompt guidance can help input quality; backend enforcement protects authoritative state. AI is not the system of record.
 
 **Q3. How did you avoid rejecting valid orders?**  
 I checked the affected invalid cases and valid request behavior with QA. **Unconfirmed:** I don't have recovered field names or exact test case identifiers; I shouldn't invent them.
@@ -579,6 +586,12 @@ No causation was established. I observed invalid or missing data at the backend 
 
 **Q5. Did your fix achieve the project's reported 42% improvement?**  
 The 42% figure belongs to the broader initiative to reduce invalid and duplicate requests; it cannot be attributed to this one validation change without an experiment or measurement.
+
+**Additional follow-up — Why security scanning for a validation change?**
+
+I ran security checks because this path handles customer data and untrusted inputs, including AI-generated tool arguments. Scanning complements QA and functional tests; it doesn't prove business correctness or the absence of vulnerabilities. I can confirm the checks ran, but cannot claim a clean scan without the report.
+
+**Study boundary:** Do not borrow Story 1's separate inventory-service test counts or scan findings as results for this validation change.
 
 ## Story 3 — Ownership: Specification-first MCP integrations
 
@@ -875,4 +888,4 @@ For a real interview: choose a verified incident, explain **your** decision and 
 
 **Recommended repository path:** `06-behavioral/Final_Story_Amazon_Leadership.md`
 
-*Prepared 19 October 2026. This document is suitable as a promptable study reference; it does not certify that every practice incident happened.*
+*Prepared 19 October 2026; Customer Obsession guidance updated 20 October 2026. This document is suitable as a promptable study reference; it does not certify that every practice incident happened.*

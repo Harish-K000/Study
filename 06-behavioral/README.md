@@ -12,14 +12,39 @@
 1. Provide the [repository link](https://github.com/Harish-K000/Study) and ask the chat to read this README and **both linked files above before answering**. Use GitHub connector access authorized for this repository where available. If it cannot read the files, upload/paste them; it must say what it could not access rather than pretend it retrieved them.
 2. Use the retrieved files as context. Identify the relevant question and story, check the evidence labels, then answer. When formats differ, use the Customer Obsession module for Q1–Q6 and the story guide to cross-check evidence; surface factual conflicts rather than silently combining them.
 3. Do not invent incidents, fields, code changes, stakeholders, deployments, metrics or outcomes. The missing-delivery-address and saved-address disagreement scenarios are illustrative, not verified job incidents. QA feedback is not a direct customer complaint; no material schedule sacrifice is established. The broader 42% metric is not attributable to this one correction.
-4. Answer in natural first-person **STAR-L: Situation, Task, Action, Result, Learning**. Use “I” for personal actions and “we” only for shared work/outcomes. Keep Learning to **2–3 short first-person sentences**. Use conditional “I would” for hypothetical exercises and label them clearly; never present one as personal history.
-5. Keep each response within a **maximum of six minutes** at the speaker's natural pace. Stop when complete; do not pad to six minutes. Use concise conversational storytelling. Keep technical follow-ups separate and explain decisions and trade-offs when asked.
+4. Target the **senior Amazon SDE II standard** requested for this preparation: architectural boundaries, personal ownership, alternatives and trade-offs, production safety, data integrity, test/security verification and customer impact. Explain judgment through the work that actually happened; do not manufacture scale or outcomes. Answer in natural spoken first-person **STAR-L: Situation, Task, Action, Result, Learning**. Use “I” for personal actions and “we” only for shared work/outcomes. Keep Learning to **2–3 short first-person sentences**. Use conditional “I would” for hypothetical exercises and label them clearly; never present one as personal history.
+5. Aim for **3–4 minutes for a normal full story**, with **six minutes as the ceiling**. Make **Action the strongest section**, usually **60–90 seconds** or the largest appropriate share of a shorter answer. Keep Situation/Task brief and Learning to 2–3 short sentences. Stop when complete; never pad or invent evidence to reach a timing target. Keep technical follow-ups separate.
+6. Explain the **AI-enabled commerce contract**: the LLM handles intent/conversation and proposes allowed structured tool calls; the backend retains authentication (authN), authorization (authZ), validation, deterministic business invariants and transactional effects. **AI is not the system of record.** Separate this responsibility boundary from unconfirmed implementation details.
+7. For **Q6**, use the confirmed Birlasoft sequence: found invalid orders while testing rate limiting/prompt injection with QA; compared valid/invalid cases; traced Java/Spring Boot request flow; corrected backend enforcement and made a targeted improvement to nearby validation code; re-tested with QA; used own Engineering Agent to run build/test and security checks; pushed a feature branch. **Checks run is not proof of checks passed.** Exact commands, test cases, scanner findings and pass/fail reports are not available for this incident. Q6 remains a partial fit for a sacrifice question: no missed deadline or material sacrifice is established. Security checks are relevant because the path handles customer data and untrusted inputs, including AI-generated arguments; they complement functional verification.
 
-This is a **GitHub-backed knowledge base**, not an implemented automatic RAG system or model training. Other chats do not automatically ingest this repository or its updates. Supply the repo/file links or connector access and explicitly request retrieval; if access is unavailable, upload the Markdown files. Re-read the current files when continuing preparation. ChatGPT projects can share sources when those sources are actually uploaded or connected ([official OpenAI documentation](https://learn.chatgpt.com/docs/projects?surface=app)).
+This is a **GitHub-backed knowledge base**, not an implemented automatic RAG system or model training. Other chats do not automatically ingest this repository or its updates. Supply the repo/file links or connector access and explicitly request retrieval; if access is unavailable, upload the Markdown files. Re-read the current files when continuing preparation.
+
+### Paste into another chat
+
+```text
+Continue my Amazon SDE II behavioral preparation from Harish-K000/Study on main.
+Read these current files before drafting; if access fails, tell me which files
+are unavailable and ask me to paste/upload them. Do not assume automatic retrieval.
+https://github.com/Harish-K000/Study/blob/main/06-behavioral/README.md
+https://github.com/Harish-K000/Study/blob/main/06-behavioral/modules/01_Customer_Obsession_Complete_Study_Module.md
+https://github.com/Harish-K000/Study/blob/main/06-behavioral/Final_Story_Amazon_Leadership.md
+Use the module for Customer Obsession Q1–Q6 and cross-check story evidence.
+Use senior engineering judgment: ownership, architecture, trade-offs, safety,
+data integrity, verification and customer impact. Speak naturally in first-person
+STAR-L; Action strongest (~60–90s or proportionate), Learning 2–3 short sentences,
+normal full story 3–4min, 6min ceiling. Never pad or invent history or metrics.
+LLM: intent/conversation and proposed allowed tool calls. Backend: authN/authZ,
+validation, deterministic business invariants and transactional effects.
+AI is not the system of record. Preserve QA-vs-customer and illustrative labels.
+For Q6 retain the nearby validation improvement, QA re-testing, own Engineering
+Agent build/test and security checks, and feature-branch push. Distinguish checks
+run from evidenced pass/fail. No established material sacrifice or production rollout.
+Start from the question I give you; keep technical follow-ups separate.
+```
 
 The general preparation below retains the earlier Air Canada material; the Amazon instructions above govern Amazon Customer Obsession practice.
 
-## STAR without sounding scripted
+## STAR without sounding scripted — earlier Air Canada short-answer format
 
 Use four short parts:
 
@@ -28,7 +53,7 @@ Use four short parts:
 - Action: the decisions and steps you personally took.
 - Result: measurable outcome, lesson, or prevention.
 
-Aim for 60–90 seconds, then pause. Use “I” for your contribution and “we” for team outcomes.
+For these earlier Air Canada short answers, aim for 60–90 seconds, then pause. For Amazon Customer Obsession, use the STAR-L delivery guidance above: 3–4 minutes normally, with Action carrying the strongest detail and a six-minute ceiling. Use “I” for your contribution and “we” for team outcomes.
 
 ## Tell me about yourself
 

@@ -2,9 +2,9 @@
 
 **Leadership Principle 1 of 16 · Story 2 (Birlasoft) · Study before mock interviews · Updated 20 October 2026**
 
-> **How to use this guide:** First understand the engineering problem and trade-offs; then practice the six natural STAR-L question variants; then learn the 27 follow-ups and system-design extensions. Do not memorize exact wording. The STAR-L headings are training cues: in the interview, speak as one connected story without announcing the labels. Six minutes is the maximum for one response, not a target; stop when the answer is complete. Keep Learning to 2–3 natural first-person sentences and use technical detail only when it helps answer the question.
+> **How to use this guide:** First understand the engineering problem and trade-offs; then practice the six natural STAR-L question variants; then learn the 27 follow-ups and system-design extensions. Do not memorize exact wording. The STAR-L headings are training cues: in the interview, speak as one connected story without announcing the labels. A normal full story is about **3–4 minutes**, with **six minutes as a ceiling**, not a target; stop when the answer is complete. Make Action the strongest section, usually **60–90 seconds** or the largest appropriate share of a shorter answer. Never pad a thin evidence base to meet a timing target. Keep Learning to 2–3 natural first-person sentences and use technical detail only when it helps answer the question.
 >
-> **Evidence boundary:** The central work is grounded in the user's described Birlasoft experience: while supporting QA rate-limit and prompt-injection testing, the engineer noticed invalid/missing order inputs, investigated/corrected backend validation handling, pushed a feature-branch change, and checked valid and invalid cases with QA. The precise field, Java change, exhaustive automated tests, release impact, and personal causal impact on the broader **42%** reported project outcome are not established. The missing-delivery-address example, saved-address stakeholder disagreement, technical code, and other proposed failure scenarios/designs below are **illustrative learning examples**, not verified job incidents or claims about the deployed Birlasoft implementation. First-person wording does not turn a practice scenario into personal history.
+> **Evidence boundary:** The central work is grounded in the user's described Birlasoft experience: while supporting QA rate-limit and prompt-injection testing, the engineer noticed invalid/missing order inputs, compared valid and invalid cases, traced the Java/Spring Boot request flow, corrected the affected backend handling and made a targeted improvement to nearby validation code, re-tested with QA, used their own Engineering Agent to run build/test and security checks, and pushed a feature-branch change. Running those checks is user-confirmed; their exact commands, reports and pass/fail results are not available for this incident. The precise field, Java change, exhaustive automated test coverage, release impact, and personal causal impact on the broader **42%** reported project outcome are not established. The missing-delivery-address example, saved-address stakeholder disagreement, technical code, and other proposed failure scenarios/designs below are **illustrative learning examples**, not verified job incidents or claims about the deployed Birlasoft implementation. First-person wording does not turn a practice scenario into personal history.
 
 **Source story:** [Final Story Amazon Leadership](https://github.com/Harish-K000/Study/blob/main/06-behavioral/Final_Story_Amazon_Leadership.md) — Story 2. **Interview syllabus:** the user's six Customer Obsession questions and 27 follow-ups from the consolidated Amazon SDE II question bank.
 
@@ -13,6 +13,12 @@
 ## Part A — What this principle tests
 
 Amazon Customer Obsession means working backward from the customer's needs and protecting customer trust, not merely doing a task that happens to involve customers. For this story, the customers are people using the commerce order flow. The customer risk is **incorrect handling of order inputs**, not a proven production incident. The distinctive contribution is noticing a problem while working on a different QA objective and addressing it at the trusted backend boundary.
+
+### Senior Amazon SDE II answer standard
+
+Use the senior engineering bar requested for this preparation: explain the architectural boundary, what **I** owned, the alternative and its trade-off, and how I verified the customer-facing behavior. Connect validation to data integrity and production safety: invalid input must not authorize a transaction, but tighter rules must also preserve legitimate requests. Describe build/test and security verification separately, and limit the result to the evidence available. A small change can demonstrate sound judgment through its scope, enforcement point and verification; seniority does not require a fabricated large incident or a list of technologies.
+
+The six variants below are **one incident viewed through different questions**, not six independent accomplishments. Q1 emphasizes ownership beyond the assigned task; Q4 emphasizes the enforcement and compatibility trade-off; Q5 emphasizes detection before a complaint; Q6 emphasizes the bounded expansion into nearby validation code. Keep detail relevant to the question instead of reciting every architectural concern each time.
 
 ### LP fit
 
@@ -154,14 +160,16 @@ An alternative standardized format is RFC 9457 `ProblemDetail`, supported by Spr
 
 ```text
 Customer message
-  -> AI assistant decides which APPROVED tool to invoke
-  -> MCP / tool adapter maps structured tool arguments
+  -> LLM interprets intent / conversation and PROPOSES an allowed structured tool call
+  -> Controlled tool layer checks allowed capability / maps untrusted arguments
   -> Authenticated Spring Boot backend
   -> Authorization + request contract validation
   -> Current business-state checks
   -> Transaction / persistence / side effects
   -> Minimal safe result returned to the model
 ```
+
+**Architectural contract:** The LLM handles intent and conversation, proposes allowed structured tool calls, and explains returned results in natural language. The backend retains **authentication (authN), authorization (authZ), input validation, deterministic business invariants and transactional effects**. The AI is **not the system of record**: authoritative application data and backend operations determine order state, not conversational claims. This is the architectural responsibility boundary to explain, not proof that every safeguard in the learning examples was implemented in this incident.
 
 **Why:** Structured tool arguments tell the system what the model *wants* to do; they cannot prove that the action is authorized, valid, idempotent, or safe.
 
@@ -172,7 +180,7 @@ Customer message
 - **Backend validation and authorization:** consistent authoritative enforcement; adds explicit rule implementation, error handling, and tests.
 - **Frontend/client-side validation:** best for immediate UX; clients can bypass it, so it complements rather than replaces backend checks.
 
-**Spoken answer:** “I use the model to understand the customer's request and choose an approved capability. But I don't treat the model's output as permission to perform a transaction. The server still validates inputs, checks ownership and business state, and controls the side effect. Prompts guide behavior; code enforces behavior.”
+**Spoken answer:** “I use the model to understand intent, hold the conversation and propose an allowed structured tool call. The backend authenticates the caller, authorizes the operation, validates the input and enforces the business rules before changing transactional state. I treat the backend data as authoritative; the AI is not the system of record. Prompts guide the conversation, while backend code enforces the contract.”
 
 ### Topic 4. Testing — show both sides of the contract
 
@@ -227,12 +235,12 @@ Useful measures include: validation-error volume *by category*, legitimate order
 
 **Trade-off:** A high validation-error rate might mean the backend is stricter—or that the UI is confusing. Evaluate customer recovery and successful order completion together, not just how many requests were rejected.
 
-**Spoken answer:** “For this particular fix, I can support the QA verification. The project's wider 42% number isn't a measurement of my change alone. If I were measuring customer impact, I'd look at whether customers successfully corrected invalid requests and completed orders, not just whether we returned more 400 responses.”
+**Spoken answer:** “For this particular fix, I can describe the QA re-testing and the Engineering Agent checks I ran. The project's wider 42% number isn't a measurement of my change alone. If I were measuring customer impact, I'd look at whether customers successfully corrected invalid requests and completed orders, not just whether we returned more 400 responses.”
 
 ---
 ## Part C — Q1–Q6: concise first-person STAR-L answers
 
-**Delivery:** Use Situation → Task → Action → Result → Learning as memory cues, then tell one connected story. Use “I” for personal actions and “we” only for shared work or outcomes. These short answers leave room for questions; **six minutes is a maximum, not time to fill**. Rehearse aloud at your natural pace and trim if needed. Do not recite the technical follow-ups as part of every opening answer.
+**Delivery:** Use Situation → Task → Action → Result → Learning as memory cues, then tell one connected story in natural spoken first-person language. Use “I” for personal actions and “we” only for shared work or outcomes. Aim for **3–4 minutes for a normal full answer**; **six minutes is the absolute ceiling**. Action should carry the strongest reasoning and most of the detail, usually **60–90 seconds**, or a proportionate largest share when the whole answer is shorter. Keep Situation and Task brief, Result evidence-based, and Learning to **2–3 short first-person sentences**. These scripts are rehearsal cores: use a shorter complete answer where that is all the evidence supports, and add only confirmed detail when expanding. Rehearse aloud; word count is not a guarantee of speaking time. Do not pad or recite every technical follow-up.
 
 **Evidence and fit:** Q1, Q4 and Q5 use the same work-grounded QA incident, with different emphasis. Q2 and Q6 have only partial fit. Q3 is a hypothetical practice exercise and cannot be presented as an actual disagreement. If the interviewer requires an experience the evidence does not establish, choose another confirmed incident or acknowledge the gap.
 
@@ -248,17 +256,21 @@ Useful measures include: validation-error volume *by category*, legitimate order
 
 **A — Action**
 
-“I traced the requests into the Java backend and investigated the validation handling. I focused there because the backend needs to enforce the order contract for every caller; prompt instructions alone can't guarantee valid inputs. I corrected the affected handling, worked with QA to check invalid and valid requests, and pushed the change to my feature branch.”
+“I compared the valid and invalid cases and traced the request flow through the Java/Spring Boot backend. I wanted to understand the validation behavior rather than assume the model was the cause. My decision was to correct the enforcement point that every caller depended on. The model could interpret the customer's intent and propose an allowed tool call, but the backend still had to decide whether that request was valid and permitted.
+
+“I corrected the affected handling and made a targeted improvement to the nearby validation code where I found it also needed attention. I kept that expansion related to the issue instead of turning it into a service redesign. The trade-off was spending additional effort on the order boundary while keeping the correction small enough to verify. A prompt-only change could improve inputs, but it wouldn't enforce the order contract.
+
+“I then re-tested with QA, comparing the affected invalid cases with valid requests. I also used my own Engineering Agent to run build/test and security checks, and pushed the change to my feature branch. I ran those checks, but I don't have the individual pass/fail reports here.”
 
 **R — Result**
 
-“We verified the corrected behavior in QA, including the valid request path.”
+“I pushed the backend validation improvement to my feature branch and re-tested the affected invalid cases and valid request path with QA.”
 
 **L — Learning**
 
 “I learned to follow up on a customer risk even when I find it outside my assigned task. I also learned to check that a fix protects valid customers as carefully as it rejects invalid requests.”
 
-**Technical follow-ups / trade-offs:** Why the backend rather than prompts or frontend checks? See Part D, 8–9. How did I verify the fix? See 21–23: QA checks are supported; specific automated tests are unconfirmed. The trade-off is stronger validation versus accidentally rejecting legitimate requests.
+**Technical follow-ups / trade-offs:** Why the backend rather than prompts or frontend checks? See Part D, 8–9. How did I verify the fix? See 21–23: QA re-testing and Engineering Agent build/test and security-check execution are user-confirmed; individual automated cases, coverage and pass/fail reports are unconfirmed. The trade-off is stronger validation versus accidentally rejecting legitimate requests.
 
 ### Q2 Tell me about a technical decision you made based on customer feedback.
 
@@ -278,7 +290,7 @@ Useful measures include: validation-error volume *by category*, legitimate order
 
 **R — Result**
 
-“We verified the corrected behavior in testing, and I pushed the change to my feature branch.”
+“We re-tested the corrected handling, and I pushed the change to my feature branch.”
 
 **L — Learning**
 
@@ -324,17 +336,21 @@ Useful measures include: validation-error volume *by category*, legitimate order
 
 **A — Action**
 
-“I traced the affected handling into the Java backend and made a focused correction. I chose the backend because prompt instructions aren't a reliable enforcement boundary. At the same time, I checked against the existing contract so the correction wouldn't turn an optional field into a mandatory one. I worked with QA to verify both the problematic requests and valid orders.”
+“I compared the valid and invalid cases and traced the Java/Spring Boot request flow to the relevant validation handling. The limitation was that a conversational model could help construct a request, but it couldn't be the authority for accepting an order. I therefore corrected the backend handling, where the contract had to hold regardless of the caller.
+
+“The engineering balance was stronger enforcement without blocking legitimate purchases. Prompt guidance could reduce bad inputs, but it couldn't replace deterministic validation. Equally, rejecting more requests wouldn't by itself prove a better customer experience. An optional field must remain optional where the business contract permits it; I wouldn't make every missing value an error just because that was simpler to implement.
+
+“I kept the improvement focused on the affected and nearby validation code. I worked with QA to re-test the problematic cases alongside valid requests. That comparison mattered because I wanted to correct the invalid path while preserving ordinary order behavior. My evidence for that balance was the QA re-test, rather than a claim that simply tightening validation improved customer outcomes in production.”
 
 **R — Result**
 
-“We verified the corrected behavior with QA, including the valid requests, and I pushed the change to my feature branch.”
+“I re-tested the corrected handling with QA, including valid requests, and pushed the change to my feature branch.”
 
 **L — Learning**
 
 “I learned that stricter validation helps only when it matches the actual customer contract. I now think about both sides of the fix: stopping invalid requests and keeping valid orders easy to complete.”
 
-**Technical follow-ups / trade-offs:** How could validation hurt customers? See Part D, 11 and Part E, probe 6: false rejections and compatibility. Why not fix only the prompt? See Part D, 8. How did I verify the balance? QA checked invalid and valid cases; see 21.
+**Technical follow-ups / trade-offs:** How could validation hurt customers? See Part D, 11 and Part E, probe 6: false rejections and compatibility. Why not fix only the prompt? See Part D, 8. How did I verify the balance? QA checked invalid and valid cases; see 21 for the separate Engineering Agent checks and evidence limits.
 
 **Illustration, not the historical field:** A delivery order with neither a supplied nor a usable saved address may need correction before submission. A request that omits repeated address text but selects an authorized saved address may still be valid under its contract. Pickup may have different requirements. I would clarify the rules before making an address field universally mandatory. The exact missing field, delivery flow and saved-address behavior in the actual incident are unconfirmed.
 
@@ -350,11 +366,15 @@ Useful measures include: validation-error volume *by category*, legitimate order
 
 **A — Action**
 
-“I followed the requests into the Java backend and investigated the validation path. I corrected the affected handling, then worked with QA to retest both the invalid scenarios and ordinary valid requests. I also pushed the correction to my feature branch.”
+“I used the difference between valid and invalid cases to investigate the behavior, then followed the request flow into the Java/Spring Boot validation path. I didn't assume that a prompt-injection test proved the model had caused the invalid order. I focused on the observed backend behavior and the boundary responsible for accepting or rejecting the request.
+
+“I corrected the affected handling and made a targeted improvement to nearby validation code that also needed attention. The scope mattered: I wanted to address the customer risk I had found without introducing unrelated changes. I then worked with QA to re-test the invalid cases and ordinary valid requests, so rejecting an invalid request wasn't my only success criterion.
+
+“I pushed the correction to my feature branch. I had found a customer-correctness risk through testing and followed it into the code that could enforce the contract. The discovery came from QA work; I hadn't received a direct customer complaint or measured the issue through production telemetry.”
 
 **R — Result**
 
-“We verified the correction during testing. I hadn't received a direct customer report; I found it through the QA work.”
+“I corrected the validation handling and re-tested it with QA. I hadn't received a direct customer report; I found it through the QA work.”
 
 **L — Learning**
 
@@ -368,23 +388,31 @@ Useful measures include: validation-error volume *by category*, legitimate order
 
 **S — Situation**
 
-“I was helping QA with rate-limiting and prompt-injection testing when I noticed an order-input validation issue outside that testing focus.”
+“At Birlasoft, I was helping QA test rate limiting and prompt injection in our AI-enabled commerce application. During that work, I discovered invalid orders and unexpected handling of order inputs. That was outside the original testing focus, but it concerned a core customer operation.”
 
 **T — Task**
 
-“I needed to decide whether to stay within the original checklist or spend time investigating behavior that could affect a customer order.”
+“I needed to investigate that order-correctness risk and decide how far to expand the work. I wanted to address the validation problem while keeping the change bounded and preserving valid order behavior.”
 
 **A — Action**
 
-“I spent time tracing the invalid requests through the Java backend and corrected the validation handling. I kept the change focused and coordinated the invalid and valid checks with QA rather than expanding it into a service redesign.”
+“I first compared valid and invalid cases, then traced the Java/Spring Boot request flow to understand where the validation handling needed correction. I focused on the backend because the AI could interpret intent and propose a tool call, but it couldn't be responsible for enforcing the order contract. Improving the prompt alone would still leave the backend dependent on untrusted inputs behaving correctly.
+
+“I corrected the specific issue. While investigating, I found nearby validation code that also needed improvement, so I expanded the change to address that related area. I kept the scope tied to validation rather than starting a broader redesign. That was the trade-off I made: additional investigation and implementation effort beyond the original checklist, with a focused change that I could re-test. I wouldn't call it a missed deadline or a sacrificed deliverable because that isn't established.
+
+“I re-tested with QA, comparing the invalid cases with valid requests to check both the correction and ordinary order behavior. I then used my own Engineering Agent to run build/test and security checks, and pushed the change to my feature branch. Those checks complemented the QA work; running them doesn't by itself establish that every check passed or that all security risks were removed.”
 
 **R — Result**
 
-“We verified the correction, and I pushed the feature-branch change. My attention moved beyond the original testing focus, but I can't claim that I delayed a deadline or gave up a committed deliverable.”
+“We re-tested the corrected behavior with QA, and I pushed the validation improvement to my feature branch after running the Engineering Agent checks. I can support that implementation and verification work. I don't have a production rollout, measured customer gain or the individual check results to add to it.”
 
 **L — Learning**
 
-“I learned to give an unexpected customer risk attention even when it isn't on the original checklist. I also learned to keep the response focused so I can verify the correction without expanding the work unnecessarily.”
+“I learned to follow a customer-correctness risk beyond the original checklist and improve the related code when the investigation justifies it. I also learned to keep that expansion bounded and describe verification only as strongly as the evidence allows.”
+
+**Possible follow-up — “Why security scanning for a validation change?”**
+
+“Because this path handles customer data and untrusted inputs, including AI-generated tool arguments. I wanted security checks alongside functional testing because input handling and dependency risks both matter on that path. A scan complements QA; it doesn't prove the business rules are correct or that the system is vulnerability-free.”
 
 **Technical follow-ups / trade-offs:** Why a focused change rather than a redesign? See Part D, 6 and 13. What did I actually sacrifice? No measurable schedule sacrifice is recorded. The defensible trade-off is investigation scope and effort, not an invented release delay or quantified customer gain.
 
@@ -406,7 +434,7 @@ Useful measures include: validation-error volume *by category*, legitimate order
 “I was already looking at the API behavior with QA, and the invalid order handling was something I could trace into the backend. Instead of dismissing it because it wasn't the purpose of that test cycle, I followed it through to the relevant code path and made a focused correction.”
 
 **4. What did you personally own?**  
-“My part was investigating the affected Java backend validation handling, making the correction and checking the relevant cases with QA. I pushed the change to my feature branch. I don't need to claim ownership of the whole AI commerce platform to explain that contribution.”
+“I compared the cases, traced the Java/Spring Boot request flow, corrected the affected handling and improved nearby validation code. I re-tested with QA, used my own Engineering Agent to run build/test and security checks, and pushed the feature-branch change. That is my contribution; it doesn't establish ownership of the entire platform or a production rollout.”
 
 **5. What was the exact invalid field?**  
 “The exact field isn't preserved in my current study notes. What I can explain is the type of problem I investigated—missing or invalid order input at the backend boundary—and the correction and verification work I did. I wouldn't invent a field or annotation just to make the story more specific.”
@@ -435,7 +463,7 @@ Useful measures include: validation-error volume *by category*, legitimate order
 “I didn't establish that. What I observed was missing or invalid data reaching the backend. I followed the behavior at the point we could enforce correctness rather than making an unsupported assumption about where the bad data originated.”
 
 **13. Why not redesign the entire workflow?**  
-“The problem I was looking at was specific to input handling. A large redesign would introduce unrelated risks and slow the correction down. I focused on the relevant backend path and checked that the normal order flow still worked.”
+“I did expand beyond the specific fix into nearby validation code because I found that area also needed improvement. I kept the expansion tied to the same validation concern, rather than redesigning the service. That balanced addressing what I found with keeping the change understandable and verifiable.”
 
 **14. What alternatives did you actually consider?**  
 “The key engineering distinction I can defend is why backend validation must be authoritative instead of relying only on prompt or caller-side behavior. I wouldn't present a long formal alternatives review that wasn't part of the recorded incident. Technically, frontend validation, tool schemas and prompts can all help, but they're complementary controls.”
@@ -463,10 +491,10 @@ Useful measures include: validation-error volume *by category*, legitimate order
 ### D. Testing, result measurement and reflection
 
 **21. How did you verify the actual fix?**  
-“I worked with QA to check the requests that had been handled incorrectly, and also checked valid requests so the correction didn't break normal processing. That is the verification I can support from this incident.”
+“I re-tested the affected invalid cases and valid requests with QA. I also used my own Engineering Agent to run build/test and security checks. I can confirm those activities, but the individual reports aren't in these notes, so I can't turn ‘checks ran’ into ‘all checks passed’ or claim a particular scanner result.”
 
 **22. Did you write automated regression tests?**  
-“I can speak to QA verification, but I don't have a confirmed automated test identifier for this particular correction. As a next improvement, I'd automate the same negative and positive cases so a later change couldn't silently reintroduce the behavior.”
+“I ran build/test checks through my Engineering Agent, but that doesn't establish that I authored new automated regression tests for this correction. I don't have the individual test identifiers, coverage or pass/fail report here. I'd automate the confirmed QA cases if they aren't already covered.”
 
 **23. How would you strengthen the tests now?**  
 “I'd make the order-input contract explicit, then create parameterized tests for missing, blank, malformed and valid values. I'd check the response code and body, and separately verify that rejected requests have no transaction side effect. For rules involving persistence or concurrency, I'd add integration tests rather than relying only on mocks.”
@@ -556,7 +584,7 @@ If you forget a prepared line, respond using this sequence:
 2. **State the decision and why.** “I focused on the backend because it has to enforce the contract for every caller.”
 3. **Describe a real alternative and drawback.** “Prompt validation improves inputs but can't guarantee correctness or protect another client.”
 4. **Describe what you checked.** “I verified affected invalid and legitimate requests with QA.”
-5. **State the supported outcome.** “The backend behavior was corrected and verified in testing.”
+5. **State the supported outcome.** “I corrected the backend handling and re-tested it with QA.”
 6. **Name the limit without overexplaining.** “The wider 42% project improvement isn't attributable to this change alone.”
 
 **The main sentence to remember:**
@@ -580,6 +608,8 @@ If you forget a prepared line, respond using this sequence:
 | Found order-input handling issue while supporting QA | Exact missing field, Java annotation or line of code |
 | Traced affected backend validation and changed handling | That a particular `@ControllerAdvice` or custom exception was implemented |
 | Retested affected cases and valid requests with QA | Specific JUnit, MockMvc, WireMock or Testcontainers test results for this incident |
+| Improved nearby validation code within a targeted scope | A service redesign, exact refactoring or a delivery-address fix |
+| Used own Engineering Agent to run build/test and security checks | All checks passed, exact scanner findings, exhaustive coverage or a security guarantee |
 | Pushed correction to a feature branch | Confirmed production customer complaint, production deployment or prevented outage |
 | Knew the broader commerce project reported 42% fewer invalid/duplicate requests | Attribution of the 42% result to this one validation correction |
 
@@ -587,12 +617,14 @@ If you forget a prepared line, respond using this sequence:
 
 ## Part G — Study checklist (finish all before a mock interview)
 
-- [ ] Explain the Story 2 incident naturally without reading; stop when complete and stay within the six-minute maximum.
+- [ ] Explain the Story 2 incident naturally without reading; target 3–4 minutes with Action strongest at about 60–90 seconds, stop when complete and stay within the six-minute maximum.
 - [ ] Explain why Customer Obsession is primary and Ownership / Highest Standards / Dive Deep are secondary.
 - [ ] Understand `@NotBlank`, `@NotNull`, `@Positive`, `@Valid`, DTO validation, and business-state validation.
 - [ ] Understand what Spring MVC does with validation exceptions and why callers need stable error contracts.
 - [ ] Explain prompt-only vs frontend vs tool schema vs backend enforcement, with benefits and limits.
-- [ ] Explain positive, negative and regression tests, including why valid requests matter.
+- [ ] Explain positive, negative and regression tests, including why valid requests matter. Distinguish QA re-testing, Engineering Agent check execution and independently established pass/fail results.
+- [ ] Explain why security scanning complements a validation change involving customer data and untrusted AI inputs.
+- [ ] Explain the LLM/backend contract and why AI is not the system of record.
 - [ ] Explain local database transactions, atomic updates and the inventory race condition.
 - [ ] Explain stable idempotency keys, ambiguous timeouts and concurrent retries.
 - [ ] Explain authentication vs role permission vs object-level authorization.
