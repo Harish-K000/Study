@@ -4,6 +4,9 @@
 
 ## Amazon SDE II — start here
 
+**Current answer quality rules (updated 2026-10-21): [Locked Interview Answer Standard](INTERVIEW_ANSWER_STANDARD.md). Read and apply this FIRST for every new STAR-L answer or technical follow-up. It records newer user corrections superseding older generic trade-offs and obsolete checkpoints; source history remains in the canonical handoff and story guide.**
+
+
 - **New chat: read the [canonical handoff](AMAZON_SDE2_CHAT_HANDOFF.md) first.** Customer Obsession Q1–Q6 and Ownership Q1–Q2 are covered. **Resume Ownership Q3 — “Took a project end to end.”** Preserve approved stories; Story 2 = Customer Obsession, Story 3 = Ownership, Story 1 = Highest Standards. One real incident per primary LP; no cross-LP reuse. The handoff preserves Story 3’s specification-first motivation: controlling alignment of coding-agent-generated code.
 - **Customer Obsession source of truth:** [Complete study module — Q1–Q6 STAR-L, trade-offs and follow-ups](modules/01_Customer_Obsession_Complete_Study_Module.md).
 - **Story evidence and wider preparation:** [Final Story Amazon Leadership](Final_Story_Amazon_Leadership.md), especially Story 2 and the interview-readiness assessment. Use this to check what is work-grounded, unconfirmed or illustrative; the module governs the current Customer Obsession answer format.
