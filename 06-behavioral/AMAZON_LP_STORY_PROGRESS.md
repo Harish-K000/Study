@@ -7,12 +7,12 @@
 
 ## Current count
 
-- **6 distinct story cores currently in play**
+- **7 distinct story cores currently in play**
 - **3 locked/canonical repo stories:** Highest Standards, Customer Obsession, Ownership
 - **2 working stories:** Deliver Results, Think Big
-- **1 newly approved rehearsal story:** Dive Deep — CRM API performance
+- **2 newly approved rehearsal stories:** Dive Deep — CRM API performance; Earn Trust — AI operations transparency
 - Current target: **16 distinct interview-ready incidents** so four interviews do not force repeated story reuse.
-- Therefore, from the current six-story bank, **10 more distinct incidents** are still needed to reach 16.
+- Therefore, from the current seven-story bank, **9 more distinct incidents** are still needed to reach 16.
 - Major LPs should ideally have **two distinct incidents each**. Do not satisfy this by relabeling or reusing the same incident across LPs.
 
 ## Fixed / current primary LP mapping
@@ -25,6 +25,7 @@
 | **Deliver Results** | Verizon holiday/iPhone promotional cart release | **Working story drafted in current conversation** | Distinct Cognizant incident. Needs full Bar Raiser drill and final approval before calling it complete. |
 | **Think Big** | CRM Core JAR reusable business components | **Working story drafted in current conversation** | Work-grounded Cognizant modularization. Result framing discussed; still needs final technical/follow-up drill. |
 | **Dive Deep** | CRM API performance investigation | **Approved for rehearsal** | Cognizant CRM performance work; 41% response-time improvement is resume-grounded. Exact SQL/index/root-cause sequence remains a rehearsal reconstruction unless later tied to specific historical evidence. Saved at `stories/06_Dive_Deep_CRM_API_Performance.md`. |
+| **Earn Trust** | AI operations transparency dashboard | **Approved for rehearsal** | Birlasoft dashboard work is resume-grounded; 45% troubleshooting-time reduction is resume-grounded. Exact before/after measurement window is not preserved in current notes. Saved at `stories/07_Earn_Trust_AI_Operations_Transparency.md`. |
 
 ## What “done” means
 
@@ -40,7 +41,7 @@ Use these labels consistently:
 
 The target is now **16 distinct interview-ready incidents**.
 
-We have **6** current story cores, so **10 more** are needed.
+We have **7** current story cores, so **9 more** are needed.
 
 The purpose of the larger bank is to support four interviews without forcing the same incident into multiple LPs. Major LPs should have **two distinct incidents where possible**.
 
@@ -48,11 +49,10 @@ The purpose of the larger bank is to support four interviews without forcing the
 
 Before creating second stories for every already-covered LP, prioritize missing primary-LP coverage with genuine incidents:
 
-1. **Earn Trust** — next story to build. Needs a real mistake, overcommitment, communication miss, or recovery where I owned the problem and changed my process.
-2. **Have Backbone; Disagree and Commit** — a real technical/product disagreement with evidence, respectful challenge, decision, and full commitment afterward.
-3. **Bias for Action** — a distinct time-sensitive decision under incomplete information. Do not reuse the holiday Deliver Results incident.
-4. **Second Dive Deep story** — preferably a real production/debugging investigation distinct from the CRM performance incident.
-5. **Learn and Be Curious / Invent and Simplify / Are Right, A Lot / Frugality** — choose from genuine incidents after the higher-priority gaps above.
+1. **Have Backbone; Disagree and Commit** — a real technical/product disagreement with evidence, respectful challenge, decision, and full commitment afterward.
+2. **Bias for Action** — a distinct time-sensitive decision under incomplete information. Do not reuse the holiday Deliver Results incident.
+3. **Second Dive Deep story** — preferably a real production/debugging investigation distinct from the CRM performance incident.
+4. **Learn and Be Curious / Invent and Simplify / Are Right, A Lot / Frugality** — choose from genuine incidents after the higher-priority gaps above.
 
 ## Candidate sources already present in the background material
 
@@ -63,7 +63,7 @@ These are **not fixed stories yet**; they are places to recover a real incident 
 - CRM API performance work → possible **Frugality** or **Dive Deep** if the actual bottleneck and measurement can be reconstructed
 - Capstone deployment/process improvement → possible **Invent and Simplify** or **Deliver Results**
 - Real disagreement with lead/client/QA/dependent team → possible **Have Backbone**
-- Real mistake or premature readiness statement → possible **Earn Trust**
+- The older Cognizant API-readiness Earn Trust scenario is retired from the active bank; use it only as reference history, not as an approved story.
 
 No candidate source becomes a story until the specific incident is grounded.
 
@@ -94,9 +94,9 @@ No candidate source becomes a story until the specific incident is grounded.
 
 ## Immediate continuation checkpoint
 
-**Next story to build: Earn Trust.**
+**Next story to build: Have Backbone; Disagree and Commit.**
 
-Story 6 — Dive Deep CRM API Performance is approved for rehearsal and saved. Rehearsal/follow-up drilling will happen later, as requested.
+Story 6 — Dive Deep CRM API Performance and Story 7 — Earn Trust AI Operations Transparency are approved for rehearsal and saved. Rehearsal/follow-up drilling will happen later, as requested.
 
 Do not restart already approved/covered stories unless explicitly asked.
 
