@@ -1,73 +1,90 @@
 # Amazon SDE II — Leadership Principle Story Progress
 
-**Updated:** 2026-11-11  
-**Purpose:** One source of truth for which Leadership Principles currently have a distinct story core, what is covered versus approved, and what remains to build.
+**Updated:** 2026-11-12  
+**Purpose:** One source of truth for which Leadership Principles have distinct incident slots, what is approved versus merely mapped, and what remains to make the full 16-story bank interview-ready.
 
 > Governing rule: **covered is not the same as approved/finalized.** Preserve locked incident cores. Do not reuse the same incident across different primary LPs. Variants of the same incident are allowed only within its primary LP.
 
 ## Current count
 
-- **7 distinct story cores currently in play**
-- **3 locked/canonical repo stories:** Highest Standards, Customer Obsession, Ownership
-- **2 working stories:** Deliver Results, Think Big
-- **2 newly approved rehearsal stories:** Dive Deep — CRM API performance; Earn Trust — AI operations transparency
-- Current target: **16 distinct interview-ready incidents** so four interviews do not force repeated story reuse.
-- Therefore, from the current seven-story bank, **9 more distinct incidents** are still needed to reach 16.
-- Major LPs should ideally have **two distinct incidents each**. Do not satisfy this by relabeling or reusing the same incident across LPs.
+- **16 distinct incident slots are now mapped.**
+- **7 current story cores are already locked/working/approved.**
+- **8 additional slots are grounded in resume/current-work evidence and now have a fixed primary LP/source.**
+- **1 slot — Have Backbone; Disagree and Commit — still needs one real disagreement event before it can become a truthful story.**
+- The target remains **16 interview-ready incidents** for four interviews without forced story reuse.
 
-## Fixed / current primary LP mapping
+## Fixed 16-story map
 
-| Primary LP | Story core | Status | Question progress / note |
-|---|---|---|---|
-| **Insist on the Highest Standards** | Engineering Agent verification workflow | **Locked core** | Primary assignment is fixed. Story 1 and old Story 17 are the same underlying initiative; never count them as two incidents. |
-| **Customer Obsession** | QA-discovered invalid/incomplete order-input handling at Birlasoft | **Locked core; wording under revision** | Canonical handoff says Q1–Q6 were covered. Newer answer standard says CO Q1 is under revision. Preserve both facts: covered historically does not mean the current wording is approved. |
-| **Ownership** | Specification-first inventory-availability and order-status MCP integrations | **Locked core** | Q1–Q2 covered. **Next canonical checkpoint: Ownership Q3 — “Took a project end to end.”** |
-| **Deliver Results** | Verizon holiday/iPhone promotional cart release | **Working story drafted in current conversation** | Distinct Cognizant incident. Needs full Bar Raiser drill and final approval before calling it complete. |
-| **Think Big** | CRM Core JAR reusable business components | **Working story drafted in current conversation** | Work-grounded Cognizant modularization. Result framing discussed; still needs final technical/follow-up drill. |
-| **Dive Deep** | CRM API performance investigation | **Approved for rehearsal** | Cognizant CRM performance work; 41% response-time improvement is resume-grounded. Exact SQL/index/root-cause sequence remains a rehearsal reconstruction unless later tied to specific historical evidence. Saved at `stories/06_Dive_Deep_CRM_API_Performance.md`. |
-| **Earn Trust** | AI operations transparency dashboard | **Approved for rehearsal** | Birlasoft dashboard work is resume-grounded; 45% troubleshooting-time reduction is resume-grounded. Exact before/after measurement window is not preserved in current notes. Saved at `stories/07_Earn_Trust_AI_Operations_Transparency.md`. |
+The detailed source-of-truth map is now:
+
+06-behavioral/16_STORY_MASTER_BANK.md
+
+| # | Primary LP | Story core | Status |
+|---:|---|---|---|
+| 1 | Insist on the Highest Standards | Engineering Agent independent verification | **Locked / approved** |
+| 2 | Customer Obsession | QA-discovered invalid/incomplete order handling | **Locked core; wording under revision** |
+| 3 | Ownership | Spec-first inventory + order-status MCP delivery | **Locked / approved core** |
+| 4 | Deliver Results | Verizon holiday/iPhone promotional cart release | **Working** |
+| 5 | Think Big | CRM Core JAR reusable components | **Working** |
+| 6 | Dive Deep | CRM API performance investigation | **Approved for rehearsal** |
+| 7 | Earn Trust | AI operations / handover dashboard | **Approved core; handover framing tightened** |
+| 8 | Bias for Action | Capstone Docker/CI-CD deployment improvement | **Grounded candidate** |
+| 9 | Invent and Simplify | Patient Queue severity-based workflow | **Grounded candidate** |
+| 10 | Learn and Be Curious | Testcontainers/WireMock integration testing | **Grounded candidate** |
+| 11 | Are Right, A Lot | CRM deduplication/matching rules | **Grounded candidate** |
+| 12 | Success and Scale Bring Broad Responsibility | OAuth2/JWT/RBAC/scoped MCP tool security | **Grounded candidate** |
+| 13 | Dive Deep — second incident | Cognizant distributed cart/bundle debugging with ELK/correlation IDs | **Grounded candidate** |
+| 14 | Insist on the Highest Standards — second incident | Frontend/backend CRM validation quality | **Grounded candidate** |
+| 15 | Ownership — second incident | Kafka-driven catalog/order synchronization | **Grounded candidate** |
+| 16 | Have Backbone; Disagree and Commit | Real technical/product disagreement | **Needs one factual confirmation** |
+
+## Story 7 revision
+
+Story 7 now uses the stronger handover/KT rationale:
+
+- small R&D-style team builds AI/MCP system;
+- solution must be handed over to a team newer to AI/tool calling;
+- docs, Jira and raw logs remain useful but still require architectural knowledge;
+- lightweight project dashboard gives one operational starting point;
+- existing logs remain the deep-debugging source;
+- request/correlation context links first-level triage to deeper investigation;
+- the troubleshooting workflow becomes part of KT/handover;
+- reported result remains **45% lower operational troubleshooting time**.
+
+Saved at:
+
+06-behavioral/stories/07_Earn_Trust_AI_Operations_Transparency.md
+
+Do not name CloudWatch as the historical log source unless confirmed. Current safe wording is **existing centralized application logs / operational data exposed through the backend**.
 
 ## What “done” means
 
-Use these labels consistently:
+- **Locked core:** incident and primary LP fixed.
+- **Covered:** one or more questions practiced.
+- **Approved/final:** wording and factual framing accepted for interview delivery.
+- **Working:** viable real incident drafted, but not fully drilled.
+- **Grounded candidate:** body of work and result are real/grounded; exact STAR trigger/decision/verification still needs reconstruction.
+- **Needs factual confirmation:** required historical event does not yet exist in the evidence; do not invent it.
 
-- **Locked core:** incident and primary LP are fixed; do not relabel or replace without a direct user correction.
-- **Covered:** we have practiced one or more interview questions using the story.
-- **Approved/final:** wording and factual framing are accepted for interview delivery.
-- **Working story:** viable incident drafted, but not yet fully drilled/approved.
-- **Candidate source:** real work area that may become a story only after we reconstruct a specific incident.
+## Remaining build sequence
 
-## Current story-bank target
+1. Story 8 — Bias for Action: capstone CI/CD.
+2. Story 9 — Invent and Simplify: Patient Queue.
+3. Story 10 — Learn and Be Curious: integration testing.
+4. Story 11 — Are Right, A Lot: CRM deduplication.
+5. Story 12 — Broad Responsibility: AI commerce security.
+6. Story 13 — second Dive Deep: Cognizant distributed cart debugging.
+7. Story 14 — second Highest Standards: frontend/backend validation.
+8. Story 15 — second Ownership: Kafka synchronization.
+9. Story 16 — Have Backbone after a real disagreement is confirmed.
 
-The target is now **16 distinct interview-ready incidents**.
+## One unresolved factual gap
 
-We have **7** current story cores, so **9 more** are needed.
+For Story 16, we need one real event where the candidate disagreed with a lead/client/teammate over a technical or product decision, explained the evidence/trade-off, and then either changed the outcome or fully committed to the final decision.
 
-The purpose of the larger bank is to support four interviews without forcing the same incident into multiple LPs. Major LPs should have **two distinct incidents where possible**.
+The old async-vs-sync CRM story is fictional and remains excluded as employment history.
 
-## Best next gaps to fill
-
-Before creating second stories for every already-covered LP, prioritize missing primary-LP coverage with genuine incidents:
-
-1. **Have Backbone; Disagree and Commit** — a real technical/product disagreement with evidence, respectful challenge, decision, and full commitment afterward.
-2. **Bias for Action** — a distinct time-sensitive decision under incomplete information. Do not reuse the holiday Deliver Results incident.
-3. **Second Dive Deep story** — preferably a real production/debugging investigation distinct from the CRM performance incident.
-4. **Learn and Be Curious / Invent and Simplify / Are Right, A Lot / Frugality** — choose from genuine incidents after the higher-priority gaps above.
-
-## Candidate sources already present in the background material
-
-These are **not fixed stories yet**; they are places to recover a real incident from existing experience:
-
-- Cognizant production troubleshooting / regression or environment issue → possible **Dive Deep**
-- CRM duplicate-detection work → possible **Are Right, A Lot** or **Dive Deep**, depending on the real incident
-- CRM API performance work → possible **Frugality** or **Dive Deep** if the actual bottleneck and measurement can be reconstructed
-- Capstone deployment/process improvement → possible **Invent and Simplify** or **Deliver Results**
-- Real disagreement with lead/client/QA/dependent team → possible **Have Backbone**
-- The older Cognizant API-readiness Earn Trust scenario is retired from the active bank; use it only as reference history, not as an approved story.
-
-No candidate source becomes a story until the specific incident is grounded.
-
-## Locked story facts to preserve
+## Locked facts to preserve
 
 ### Customer Obsession
 
@@ -77,7 +94,6 @@ No candidate source becomes a story until the specific incident is grounded.
 - Corrected affected backend handling and nearby related validation.
 - Re-tested with QA.
 - No invented exact field, annotation/class, HTTP response, production rollout, or isolated 42% attribution.
-- Engineering Agent verification detail is not central to the story unless a follow-up makes it relevant.
 
 ### Ownership
 
@@ -90,22 +106,18 @@ No candidate source becomes a story until the specific incident is grounded.
 
 - Engineering Agent verification remains the primary incident.
 - Execution evidence and review are the key mechanism.
-- Story 1 and Story 17 are one initiative, not two stories.
+- Story 1 and old Story 17 are one initiative, not two stories.
 
-## Immediate continuation checkpoint
+## Retrieval status
 
-**Next story to build: Have Backbone; Disagree and Commit.**
+Current main was re-read before this update:
 
-Story 6 — Dive Deep CRM API Performance and Story 7 — Earn Trust AI Operations Transparency are approved for rehearsal and saved. Rehearsal/follow-up drilling will happen later, as requested.
+- 06-behavioral/README.md
+- 06-behavioral/INTERVIEW_ANSWER_STANDARD.md
+- 06-behavioral/AMAZON_SDE2_CHAT_HANDOFF.md
+- 06-behavioral/Final_Story_Amazon_Leadership.md
+- 06-behavioral/stories/07_Earn_Trust_AI_Operations_Transparency.md
 
-Do not restart already approved/covered stories unless explicitly asked.
+The modules directory still contains only the Customer Obsession module; there is no Earn Trust or Have Backbone module to retrieve.
 
-## Sources retrieved from current GitHub main
-
-- `06-behavioral/README.md`
-- `06-behavioral/INTERVIEW_ANSWER_STANDARD.md`
-- `06-behavioral/AMAZON_SDE2_CHAT_HANDOFF.md`
-- `06-behavioral/Final_Story_Amazon_Leadership.md`
-- `06-behavioral/modules/01_Customer_Obsession_Complete_Study_Module.md`
-
-Latest direct user corrections in the current conversation govern conflicts with older generated story-guide material.
+Latest direct user corrections govern conflicts with older generated story-guide material.
