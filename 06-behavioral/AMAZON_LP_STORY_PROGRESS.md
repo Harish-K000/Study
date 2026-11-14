@@ -8,9 +8,9 @@
 ## Current count
 
 - **16 work-only slots are mapped.**
-- **7 current story cores are already locked/working/approved.**
+- **8 current story cores are now locked/working/approved/finalized for rehearsal.**
 - **6 additional professional slots are grounded in resume/current-work evidence.**
-- **3 slots require a specific real workplace event to be recovered:** Bias for Action, Invent and Simplify, and Have Backbone.
+- **Story 8 Bias for Action is now finalized as the Cognizant distributed cart investigation. Invent and Simplify, Story 13's second Dive Deep incident, and Have Backbone still need specific real workplace reconstruction.
 - The target remains **16 interview-ready professional incidents** for four interviews without forced story reuse.
 
 ## Fixed professional-only map
@@ -27,13 +27,13 @@ The detailed source-of-truth map is:
 | 4 | Deliver Results | Verizon holiday/iPhone promotional cart release | **Working** |
 | 5 | Think Big | CRM Core JAR reusable components | **Working** |
 | 6 | Dive Deep | CRM API performance investigation | **Approved for rehearsal** |
-| 7 | Earn Trust | AI operations / handover dashboard | **Approved core; handover framing tightened** |
-| 8 | Bias for Action | Real Cognizant production/regression incident | **Needs factual reconstruction** |
+| 7 | Earn Trust | AI operations / handover dashboard | **Finalized for rehearsal** |
+| 8 | Bias for Action | Cognizant distributed cart/bundle investigation with ELK/correlation IDs | **Finalized safe rehearsal version** |
 | 9 | Invent and Simplify | Distinct Birlasoft/Cognizant simplification incident | **Needs factual reconstruction** |
 | 10 | Learn and Be Curious | Birlasoft Testcontainers/WireMock integration testing | **Grounded candidate** |
 | 11 | Are Right, A Lot | Cognizant CRM deduplication/matching rules | **Grounded candidate** |
 | 12 | Success and Scale Bring Broad Responsibility | Birlasoft OAuth2/JWT/RBAC/scoped MCP security | **Grounded candidate** |
-| 13 | Dive Deep — second incident | Cognizant cart/bundle debugging with ELK/correlation IDs | **Grounded candidate** |
+| 13 | Dive Deep — second incident | Separate Cognizant production/regression/security debugging incident | **Needs factual reconstruction** |
 | 14 | Insist on the Highest Standards — second incident | Cognizant frontend/backend validation quality | **Grounded candidate** |
 | 15 | Ownership — second incident | Birlasoft Kafka catalog/order synchronization | **Grounded candidate** |
 | 16 | Have Backbone; Disagree and Commit | Real workplace disagreement | **Needs factual confirmation** |
@@ -75,19 +75,17 @@ Do not name CloudWatch as historical fact unless confirmed.
 
 ## Remaining build sequence
 
-1. Recover Story 8 real production/regression incident.
-2. Recover Story 9 distinct simplification incident.
-3. Build Story 10 integration-testing learning incident.
-4. Build Story 11 CRM deduplication judgment incident.
-5. Build Story 12 AI commerce security responsibility incident.
-6. Build Story 13 distributed cart debugging incident.
-7. Build Story 14 validation-quality incident.
-8. Build Story 15 Kafka synchronization ownership incident.
-9. Recover Story 16 workplace disagreement.
+1. Recover Story 9 distinct simplification incident.
+2. Build Story 10 integration-testing learning incident.
+3. Build Story 11 CRM deduplication judgment incident.
+4. Build Story 12 AI commerce security responsibility incident.
+5. Recover a separate Story 13 debugging incident.
+6. Build Story 14 validation-quality incident.
+7. Build Story 15 Kafka synchronization ownership incident.
+8. Recover Story 16 workplace disagreement.
 
 ## Current unresolved gaps
 
-- **Bias for Action:** exact real incident, trigger, action under uncertainty, outcome.
 - **Invent and Simplify:** exact distinct simplification, before/after complexity, result.
 - **Have Backbone:** exact disagreement, competing positions, evidence, final commitment.
 
