@@ -1,25 +1,25 @@
 # Amazon SDE II — Leadership Principle Story Progress
 
-**Updated:** 2026-11-12  
-**Purpose:** One source of truth for which Leadership Principles have distinct incident slots, what is approved versus merely mapped, and what remains to make the full 16-story bank interview-ready.
+**Updated:** 2026-11-13  
+**Purpose:** One source of truth for which Leadership Principles have distinct professional-work incident slots, what is approved versus merely mapped, and what remains to make the full 16-story bank interview-ready.
 
-> Governing rule: **covered is not the same as approved/finalized.** Preserve locked incident cores. Do not reuse the same incident across different primary LPs. Variants of the same incident are allowed only within its primary LP.
+> **Hard constraint:** all 16 behavioral stories must come from professional work experience only. Birlasoft and Cognizant are eligible. Academic/capstone projects, simulated outcomes and fictional practice incidents are excluded.
 
 ## Current count
 
-- **16 distinct incident slots are now mapped.**
+- **16 work-only slots are mapped.**
 - **7 current story cores are already locked/working/approved.**
-- **8 additional slots are grounded in resume/current-work evidence and now have a fixed primary LP/source.**
-- **1 slot — Have Backbone; Disagree and Commit — still needs one real disagreement event before it can become a truthful story.**
-- The target remains **16 interview-ready incidents** for four interviews without forced story reuse.
+- **6 additional professional slots are grounded in resume/current-work evidence.**
+- **3 slots require a specific real workplace event to be recovered:** Bias for Action, Invent and Simplify, and Have Backbone.
+- The target remains **16 interview-ready professional incidents** for four interviews without forced story reuse.
 
-## Fixed 16-story map
+## Fixed professional-only map
 
-The detailed source-of-truth map is now:
+The detailed source-of-truth map is:
 
 06-behavioral/16_STORY_MASTER_BANK.md
 
-| # | Primary LP | Story core | Status |
+| # | Primary LP | Story core / source | Status |
 |---:|---|---|---|
 | 1 | Insist on the Highest Standards | Engineering Agent independent verification | **Locked / approved** |
 | 2 | Customer Obsession | QA-discovered invalid/incomplete order handling | **Locked core; wording under revision** |
@@ -28,96 +28,73 @@ The detailed source-of-truth map is now:
 | 5 | Think Big | CRM Core JAR reusable components | **Working** |
 | 6 | Dive Deep | CRM API performance investigation | **Approved for rehearsal** |
 | 7 | Earn Trust | AI operations / handover dashboard | **Approved core; handover framing tightened** |
-| 8 | Bias for Action | Capstone Docker/CI-CD deployment improvement | **Grounded candidate** |
-| 9 | Invent and Simplify | Patient Queue severity-based workflow | **Grounded candidate** |
-| 10 | Learn and Be Curious | Testcontainers/WireMock integration testing | **Grounded candidate** |
-| 11 | Are Right, A Lot | CRM deduplication/matching rules | **Grounded candidate** |
-| 12 | Success and Scale Bring Broad Responsibility | OAuth2/JWT/RBAC/scoped MCP tool security | **Grounded candidate** |
-| 13 | Dive Deep — second incident | Cognizant distributed cart/bundle debugging with ELK/correlation IDs | **Grounded candidate** |
-| 14 | Insist on the Highest Standards — second incident | Frontend/backend CRM validation quality | **Grounded candidate** |
-| 15 | Ownership — second incident | Kafka-driven catalog/order synchronization | **Grounded candidate** |
-| 16 | Have Backbone; Disagree and Commit | Real technical/product disagreement | **Needs one factual confirmation** |
+| 8 | Bias for Action | Real Cognizant production/regression incident | **Needs factual reconstruction** |
+| 9 | Invent and Simplify | Distinct Birlasoft/Cognizant simplification incident | **Needs factual reconstruction** |
+| 10 | Learn and Be Curious | Birlasoft Testcontainers/WireMock integration testing | **Grounded candidate** |
+| 11 | Are Right, A Lot | Cognizant CRM deduplication/matching rules | **Grounded candidate** |
+| 12 | Success and Scale Bring Broad Responsibility | Birlasoft OAuth2/JWT/RBAC/scoped MCP security | **Grounded candidate** |
+| 13 | Dive Deep — second incident | Cognizant cart/bundle debugging with ELK/correlation IDs | **Grounded candidate** |
+| 14 | Insist on the Highest Standards — second incident | Cognizant frontend/backend validation quality | **Grounded candidate** |
+| 15 | Ownership — second incident | Birlasoft Kafka catalog/order synchronization | **Grounded candidate** |
+| 16 | Have Backbone; Disagree and Commit | Real workplace disagreement | **Needs factual confirmation** |
+
+## Excluded from the bank
+
+The earlier draft incorrectly used two non-work projects for slots 8 and 9. That is now corrected.
+
+Do **not** use these as part of the 16 behavioral stories:
+
+- capstone/physiotherapy deployment project;
+- Patient Queue Management project;
+- any simulated project result;
+- fictional practice incidents from the old story guide.
+
+The resume confirms these are listed under **PROJECTS**, separately from Birlasoft and Cognizant **WORK EXPERIENCE**, so they are not eligible under the user's work-only rule. fileciteturn181file1
+
+## Professional source inventory
+
+Birlasoft work provides grounded areas including Java/Spring AI/MCP services (**34% lower AI-channel processing time**), Kafka catalog/order synchronization, structured outputs/validation/idempotency/guardrails (**42% fewer invalid/duplicate requests**), OAuth2/JWT/RBAC/scoped tools, operational dashboards (**45% lower troubleshooting time**), and automated integration testing. fileciteturn181file0
+
+Cognizant work provides grounded areas including CRM workflows (**31% higher reliability**), REST/JPA data processing (**27% fewer backend processing errors**), deduplication (**36% fewer duplicates**), Core JAR modularization (**33% lower coupling**), API performance (**41% lower response time**), frontend/backend validation (**29% fewer validation defects**), and production/regression/security debugging (**37% higher defect detection**). fileciteturn181file1
+
+These metrics identify bodies of professional work; they do not automatically supply a complete STAR incident or prove every causal detail.
 
 ## Story 7 revision
 
-Story 7 now uses the stronger handover/KT rationale:
+Story 7 remains the Birlasoft R&D handover/KT dashboard story:
 
-- small R&D-style team builds AI/MCP system;
-- solution must be handed over to a team newer to AI/tool calling;
-- docs, Jira and raw logs remain useful but still require architectural knowledge;
-- lightweight project dashboard gives one operational starting point;
-- existing logs remain the deep-debugging source;
-- request/correlation context links first-level triage to deeper investigation;
-- the troubleshooting workflow becomes part of KT/handover;
-- reported result remains **45% lower operational troubleshooting time**.
+- receiving team newer to AI/tool calling;
+- dashboard gives one project-level starting point;
+- existing logs remain the detailed debugging source;
+- correlation/request context connects triage to deeper investigation;
+- Jira remains defect/ownership tracking;
+- troubleshooting workflow is part of KT/handover;
+- reported result remains **45% lower troubleshooting time**.
 
-Saved at:
-
-06-behavioral/stories/07_Earn_Trust_AI_Operations_Transparency.md
-
-Do not name CloudWatch as the historical log source unless confirmed. Current safe wording is **existing centralized application logs / operational data exposed through the backend**.
-
-## What “done” means
-
-- **Locked core:** incident and primary LP fixed.
-- **Covered:** one or more questions practiced.
-- **Approved/final:** wording and factual framing accepted for interview delivery.
-- **Working:** viable real incident drafted, but not fully drilled.
-- **Grounded candidate:** body of work and result are real/grounded; exact STAR trigger/decision/verification still needs reconstruction.
-- **Needs factual confirmation:** required historical event does not yet exist in the evidence; do not invent it.
+Do not name CloudWatch as historical fact unless confirmed.
 
 ## Remaining build sequence
 
-1. Story 8 — Bias for Action: capstone CI/CD.
-2. Story 9 — Invent and Simplify: Patient Queue.
-3. Story 10 — Learn and Be Curious: integration testing.
-4. Story 11 — Are Right, A Lot: CRM deduplication.
-5. Story 12 — Broad Responsibility: AI commerce security.
-6. Story 13 — second Dive Deep: Cognizant distributed cart debugging.
-7. Story 14 — second Highest Standards: frontend/backend validation.
-8. Story 15 — second Ownership: Kafka synchronization.
-9. Story 16 — Have Backbone after a real disagreement is confirmed.
+1. Recover Story 8 real production/regression incident.
+2. Recover Story 9 distinct simplification incident.
+3. Build Story 10 integration-testing learning incident.
+4. Build Story 11 CRM deduplication judgment incident.
+5. Build Story 12 AI commerce security responsibility incident.
+6. Build Story 13 distributed cart debugging incident.
+7. Build Story 14 validation-quality incident.
+8. Build Story 15 Kafka synchronization ownership incident.
+9. Recover Story 16 workplace disagreement.
 
-## One unresolved factual gap
+## Current unresolved gaps
 
-For Story 16, we need one real event where the candidate disagreed with a lead/client/teammate over a technical or product decision, explained the evidence/trade-off, and then either changed the outcome or fully committed to the final decision.
+- **Bias for Action:** exact real incident, trigger, action under uncertainty, outcome.
+- **Invent and Simplify:** exact distinct simplification, before/after complexity, result.
+- **Have Backbone:** exact disagreement, competing positions, evidence, final commitment.
 
-The old async-vs-sync CRM story is fictional and remains excluded as employment history.
-
-## Locked facts to preserve
-
-### Customer Obsession
-
-- QA rate-limit/prompt-injection testing exposed invalid or incomplete order-input handling.
-- Compared valid and invalid requests.
-- Traced Java/Spring Boot backend flow.
-- Corrected affected backend handling and nearby related validation.
-- Re-tested with QA.
-- No invented exact field, annotation/class, HTTP response, production rollout, or isolated 42% attribution.
-
-### Ownership
-
-- Inventory availability and order status MCP integrations.
-- Specification-first approach was motivated by Codex/Claude Code output not always aligning with explicit requirements.
-- Wrote contracts/requirements/acceptance criteria, guided agent-generated implementation, personally reviewed alignment, handled requirement changes through lead/client approval, followed testing, delivery and handover.
-- No invented team-wide adoption, dramatic failure, automated spec enforcement, or productivity metric.
-
-### Highest Standards
-
-- Engineering Agent verification remains the primary incident.
-- Execution evidence and review are the key mechanism.
-- Story 1 and old Story 17 are one initiative, not two stories.
+Do not manufacture any of these to reach 16.
 
 ## Retrieval status
 
-Current main was re-read before this update:
-
-- 06-behavioral/README.md
-- 06-behavioral/INTERVIEW_ANSWER_STANDARD.md
-- 06-behavioral/AMAZON_SDE2_CHAT_HANDOFF.md
-- 06-behavioral/Final_Story_Amazon_Leadership.md
-- 06-behavioral/stories/07_Earn_Trust_AI_Operations_Transparency.md
-
-The modules directory still contains only the Customer Obsession module; there is no Earn Trust or Have Backbone module to retrieve.
+The professional resume was re-opened for this correction. It explicitly separates Birlasoft/Cognizant under **WORK EXPERIENCE** from academic work under **PROJECTS**. fileciteturn181file0 fileciteturn181file1
 
 Latest direct user corrections govern conflicts with older generated story-guide material.
